@@ -3,17 +3,27 @@ import styled from 'styled-components';
 import GoogleMapReact from 'google-map-react';
 import Header from '../containers/header';
 import Footer from '../containers/footer';
+import BlueDot from '../assets/Blue_dot.png'
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
+const CurrentLocation = () => <Current src={BlueDot} />;
 
 class Find extends Component {
+
+  componentDidMount() {
+    this.props.getLocation();
+  }
+
+  // getPins() {
+  //   return this.props.data.map(location => <div>)
+  // }
+
   static defaultProps = {
     center: {lat: 39.7467473, lng: -104.9922351},
     zoom: 12
   };
 
   render() {
+
     return (
       <div>
         <Header />
@@ -24,10 +34,9 @@ class Find extends Component {
               defaultCenter={this.props.center}
               defaultZoom={this.props.zoom}
             >
-            <AnyReactComponent
-              lat={59.955413}
-              lng={30.337844}
-              text={'Kreyser Avrora'}
+            <CurrentLocation
+              lat= {this.props.currentLatitude}
+              lng={this.props.currentLongitude}
             />
             </GoogleMapReact>
           </MapContainer>
@@ -66,4 +75,9 @@ const MapContainer = styled.div `
   flex-flow: column;
   justify-content: center;
   align-items: center;
+`
+
+const Current = styled.img `
+  width: 10px;
+  height: 10px;
 `

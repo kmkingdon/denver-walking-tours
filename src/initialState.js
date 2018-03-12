@@ -1,4 +1,6 @@
 export default {
-    selectedTour: undefined,
-    tours: []
+  currentLatitude: null,
+  currentLongitude: null,
+  selectedTour: undefined,
+  tours: []
 }

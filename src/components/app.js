@@ -4,6 +4,7 @@ import Dashboard from '../containers/dashboard';
 import Find from '../containers/find';
 import Start from '../containers/start';
 import Add from '../containers/add';
+import GPS from '../containers/gps';
 
 class App extends Component {
 
@@ -23,6 +24,9 @@ class App extends Component {
         break;
       case "/add":
         return <Add/>;
+        break;
+      case "/gps":
+        return <GPS/>;
         break;
       default:
         break;

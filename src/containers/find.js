@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
 import Find from '../components/find';
+import { getLocation } from '../actions';
 
 const mapStateToProps = (state) => {
     return {
-      url: state.router.pathname
+      currentLatitude: state.main.currentLatitude,
+      currentLongitude: state.main.currentLongitude
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
+      getLocation: () => dispatch(getLocation()),
     }
 }
 
