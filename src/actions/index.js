@@ -39,3 +39,30 @@ export const selectTour = (id) => {
       id
     }
 }
+
+export const getStops= () => {
+    return async (dispatch) => {
+        const response = await fetch('https://walkingdb.herokuapp.com/stops');
+        const stops = await response.json();
+        dispatch(()=> dispatch(gotStops(stops)));
+    }
+}
+
+export const gotStops = (stops) => {
+  return {
+      type: 'GOT_STOPS',
+      stops
+    }
+}
+
+export const nextStop = () => {
+  return {
+      type: 'NEXT_STOP'
+    }
+}
+
+export const resetTour = () => {
+  return {
+      type: 'RESET_TOUR'
+    }
+}

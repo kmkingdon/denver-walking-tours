@@ -4,11 +4,16 @@ import header from '../assets/header.jpg';
 
 class Header extends Component {
 
+  homeReset= () => {
+    this.props.home();
+    this.props.resetTour();
+  }
+
   render() {
     return (
       <Container >
         <Title> Denver Walking Tours </Title>
-        <Button onClick={this.props.home}> Home </Button>
+        <Button onClick={this.homeReset}> Home </Button>
       </Container>
     )
   }
@@ -36,6 +41,7 @@ const Title = styled.h1 `
   margin-left: 1rem;
   font-size: 2rem;
   color: white;
+  font-family: 'Playfair Display', serif;
 `
 
 const Button = styled.button `
@@ -50,4 +56,5 @@ const Button = styled.button `
   font-size: 1rem;
   color: black;
   border-radius: 10px;
+  font-family: 'Playfair Display', serif;
 `

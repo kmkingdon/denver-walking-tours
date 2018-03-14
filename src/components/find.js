@@ -16,7 +16,7 @@ class Find extends Component {
   constructor(props) {
     super(props)
     this.state= {
-      center: {lat: 39.7467473, lng: -104.9922351}
+      center: {lat: '', lng: ''}
     }
   }
 
@@ -77,6 +77,7 @@ class Find extends Component {
           </TitleContainer>
           <MapContainer>
             <GoogleMapReact
+              bootstrapURLKeys={{ key: 'AIzaSyBO9iDTo1khIY3Gi7MhnvfXBdNIkj9C6LY'}}
               defaultCenter={this.state.center}
               defaultZoom={this.props.zoom}
             >
@@ -123,6 +124,7 @@ const Title = styled.h1 `
   justify-self: center;
   align-self: center;
   font-size: 1.3rem;
+  font-family: 'Playfair Display', serif;
 `
 const Drinks = styled.img `
   grid-row: 1/2;

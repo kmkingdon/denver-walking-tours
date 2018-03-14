@@ -43,4 +43,5 @@ const Button = styled.button `
   font-size: 1rem;
   color: black;
   border-radius: 10px;
+  font-family: 'Playfair Display', serif;
 `
