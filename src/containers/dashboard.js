@@ -5,6 +5,7 @@ import Dashboard from '../components/dashboard';
 
 const mapStateToProps = (state) => {
     return {
+      gpsPermission: state.main.gpsPermission
     }
 }
 

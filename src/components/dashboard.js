@@ -6,9 +6,19 @@ import DashboardBackground from '../assets/dashboard.jpg';
 
 class Dashboard extends Component {
 
+
+
   permission= (event) => {
     this.props.savePermission(event.target.checked);
     this.props.getLocation();
+  }
+
+  get Checkbox() {
+    if(this.props.gpsPermission) {
+      return <Check onClick={this.permission} type="checkbox" checked />
+    } else {
+      return <Check onClick={this.permission} type="checkbox" />
+    }
   }
 
   render() {
@@ -21,7 +31,7 @@ class Dashboard extends Component {
           <Button2 onClick={this.props.about}>About</Button2>
           <UserRequest>
             <Label> Can Denver Walking Tours use your current location?</Label>
-            <Check onClick={this.permission} type="checkbox" />
+            {this.Checkbox}
           </UserRequest>
         </Container>
         <Footer />

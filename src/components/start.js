@@ -78,7 +78,6 @@ class Start extends Component {
       newCenter.lng = parseFloat(currentStop.longitude);
       this.setState({center: newCenter});
     }
-    console.log(this.state.center)
     this.props.getLocation();
   }
 
