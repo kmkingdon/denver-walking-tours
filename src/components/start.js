@@ -45,6 +45,7 @@ class Start extends Component {
     this.state= {
       center: {lat: 39.748099, lng: -104.995687}
     }
+    this.findCenter = this.findCenter.bind(this);
   }
 
   componentDidMount() {
@@ -67,16 +68,18 @@ class Start extends Component {
     this.props.nextStop();
   }
 
-  findCenter() {
+  findCenter= () => {
+
     let tourStops = this.props.stops.stops.filter(stops => stops.tours_id === this.props.selectedTour)
     let currentStop = tourStops.filter(stops => stops.stopNumber === this.props.stopNumber)[0];
-    let newCenter = {lat:'', lng: ''};
+    let newCenter = {lat:0, lng: 0};
     if(currentStop !== undefined) {
-
-      newCenter.lat = currentStop.latitude;
-      newCenter.lng = currentStop.longitude;
+      newCenter.lat = parseFloat(currentStop.latitude);
+      newCenter.lng = parseFloat(currentStop.longitude);
       this.setState({center: newCenter});
     }
+    console.log(this.state.center)
+    this.props.getLocation();
   }
 
   get Title() {
@@ -124,7 +127,8 @@ class Start extends Component {
         <Address>{currentStop.address} </Address>
         <MoreInfo href={currentStop.link} target="_blank">More Info</MoreInfo>
         <Description>{currentStop.description}</Description>
-        <Next/>
+        <Next findCenter={this.findCenter}/>
+        <Back onClick={this.props.backStop}>Back a Stop</Back>
       </StopInfo>
     )}
   }
@@ -189,7 +193,7 @@ class Start extends Component {
   }
 
   static defaultProps = {
-    zoom: 15
+    zoom: 13
   };
 
   render() {
@@ -322,4 +326,13 @@ const Description = styled.p `
   align-self: start;
   text-align: center;
   font-size: .9rem;
+`
+
+const Back = styled.button `
+  grid-row: 4/5;
+  grid-column: 2/3;
+  height: 70%;
+  width: 90%;
+  background-color: transparent;
+  border-radius: 10px;
 `

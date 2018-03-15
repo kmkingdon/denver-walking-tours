@@ -6,6 +6,10 @@ import DashboardBackground from '../assets/dashboard.jpg';
 
 class Dashboard extends Component {
 
+  permission= (event) => {
+    this.props.savePermission(event.target.checked);
+    this.props.getLocation();
+  }
 
   render() {
     return (
@@ -14,7 +18,11 @@ class Dashboard extends Component {
         <Container>
           <Title> Welcome to Denver Walking Tours </Title>
           <Button1 onClick={this.props.find}>Find A Tour</Button1>
-          <Button2>About</Button2>
+          <Button2 onClick={this.props.about}>About</Button2>
+          <UserRequest>
+            <Label> Can Denver Walking Tours use your current location?</Label>
+            <Check onClick={this.permission} type="checkbox" />
+          </UserRequest>
         </Container>
         <Footer />
       </div>
@@ -76,4 +84,25 @@ const Button2 = styled.button `
   color: black;
   border-radius: 10px;
   font-family: 'Playfair Display', serif;
+`
+
+const UserRequest = styled.form `
+  grid-column: 1/2;
+  grid-row: 4/5;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+`
+
+const Label = styled.label `
+  font-size: 1rem;
+  width:60%;
+  text-align: center;
+`
+const Check = styled.input `
+  width: 2rem;
+  height: 2rem;
 `

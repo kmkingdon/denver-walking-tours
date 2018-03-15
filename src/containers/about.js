@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Add from '../components/add';
+import About from '../components/about';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,4 +12,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Add);
+export default connect(mapStateToProps, mapDispatchToProps)(About);

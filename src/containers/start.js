@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Start from '../components/start';
-import { getLocation , getStops , nextStop} from '../actions';
+import { getLocation , getStops , nextStop, backStop} from '../actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => {
       getLocation: () => dispatch(getLocation()),
       getStops: () => dispatch(getStops()),
       nextStop: () => dispatch(nextStop()),
+      backStop: () => dispatch(backStop()),
     }
 }
 

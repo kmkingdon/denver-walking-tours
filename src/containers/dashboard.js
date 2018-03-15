@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import { push } from 'redux-first-routing';
-import { getLocation } from '../actions';
+import { getLocation, savePermission} from '../actions';
 import Dashboard from '../components/dashboard';
 
 const mapStateToProps = (state) => {
     return {
-      url: state.router.pathname
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
       getLocation: () => dispatch(getLocation()),
+      savePermission: (boolean) => dispatch(savePermission(boolean)),
       find: () => dispatch(push('/find')),
-      add: () => dispatch(push('/add'))
+      about: () => dispatch(push('/about'))
     }
 }
 

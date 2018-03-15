@@ -3,8 +3,7 @@ import Auth from '../containers/auth';
 import Dashboard from '../containers/dashboard';
 import Find from '../containers/find';
 import Start from '../containers/start';
-import Add from '../containers/add';
-import GPS from '../containers/gps';
+import About from '../containers/about';
 
 class App extends Component {
 
@@ -12,24 +11,15 @@ class App extends Component {
     switch (this.props.url) {
       case "/":
         return <Auth/>;
-        break;
       case "/dashboard":
         return <Dashboard/>;
-        break;
       case "/find":
         return <Find/>;
-        break;
       case "/start":
         return <Start/>;
-        break;
-      case "/add":
-        return <Add/>;
-        break;
-      case "/gps":
-        return <GPS/>;
-        break;
+      case "/about":
+        return <About/>;
       default:
-        break;
     }
   }
 

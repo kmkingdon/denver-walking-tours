@@ -16,7 +16,7 @@ class Find extends Component {
   constructor(props) {
     super(props)
     this.state= {
-      center: {lat: '', lng: ''}
+      center: {lat: 0 , lng: 0}
     }
   }
 
@@ -24,7 +24,7 @@ class Find extends Component {
     this.props.getLocation();
     this.props.getTours();
 
-    let newCenter = {lat:'', lng: ''};
+    let newCenter = {lat:0, lng:0 };
     newCenter.lat = this.props.currentLatitude;
     newCenter.lng = this.props.currentLongitude;
     this.setState({center: newCenter});
@@ -50,7 +50,6 @@ class Find extends Component {
             return   <Tours onClick={(id)=>{this.showTour(location.id)}} key={location.id} src={architecture} lat={location.firstLatitude} lng={location.firstLongitude}/>
 
           default:
-
         }
       })
   }
